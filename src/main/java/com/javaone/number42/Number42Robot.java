@@ -48,8 +48,8 @@ public class Number42Robot {
 //        robot.setMotorRight(robotRightMotor);
 //        robot.setPlatformRelation(new RobotPlatformRelation(robotLeftMotor, robotRightMotor));
 
-        robot.setLCD(new RobotLCD("JavaOne robot full"));
-//        robot.setPAD(new RobotPAD());
+        robot.setLCD(new RobotLCD("JavaOne robot One"));
+        robot.setPAD(new RobotPAD());
         robot.build();
         if(robot.check()){
             robot.activate();
