@@ -19,12 +19,13 @@
 package com.javaone.number42;
 
 
+import com.javaone.number42.init.RobotHandRelation;
 import com.javaone.number42.init.RobotLCD;
 import com.javaone.number42.init.RobotMotor;
 import com.javaone.number42.init.RobotNumber42;
 import com.javaone.number42.init.RobotPAD;
+import com.javaone.number42.init.RobotPlatformRelation;
 import com.javaone.number42.init.RobotTouchSensor;
-import com.javaone.number42.init.RobotUnitsRelation;
 
 /**
  * @author Miro Kopecky (@miragemiko)
@@ -34,14 +35,21 @@ public class Number42Robot {
 
     public static void main(String[] args) {
         RobotNumber42 robot = new RobotNumber42();
-        RobotTouchSensor robotTouchSensor = new RobotTouchSensor("S4");
-        RobotMotor robotMotor = new RobotMotor("A");
+        RobotTouchSensor robotHandTouchSensor = new RobotTouchSensor("S4");
+        RobotMotor robotHandMotor = new RobotMotor("A");
+//        RobotMotor robotLeftMotor = new RobotMotor("B");
+//        RobotMotor robotRightMotor = new RobotMotor("C");
 
-        robot.setMotor(robotMotor);
-        robot.setSensor(robotTouchSensor);
-        robot.setRelation(new RobotUnitsRelation(robotTouchSensor,robotMotor));
-        robot.setLCD(new RobotLCD("JavaOne robot"));
-        robot.setPAD(new RobotPAD());
+
+        robot.setHandMotor(robotHandMotor);
+        robot.setHandSensor(robotHandTouchSensor);
+        robot.setHandRelation(new RobotHandRelation(robotHandTouchSensor,robotHandMotor));
+//        robot.setMotorLeft(robotLeftMotor);
+//        robot.setMotorRight(robotRightMotor);
+//        robot.setPlatformRelation(new RobotPlatformRelation(robotLeftMotor, robotRightMotor));
+
+        robot.setLCD(new RobotLCD("JavaOne robot full"));
+//        robot.setPAD(new RobotPAD());
         robot.build();
         if(robot.check()){
             robot.activate();
