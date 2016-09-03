@@ -23,11 +23,8 @@ function prepare {
   cp ~/JAVA/JAVA8/robo4j/robo4j-brick-j1-client/build/libs/robo4j-brick-j1-client-all-alfa-0.2.jar ./libs/
   cp ./libs/robo4j-brick-j1-client-all-alfa-0.2.jar ./out/  
   javac -cp ./src/main/java/ ./src/main/java/com/javaone/number42/Number42Robot.java -classpath ./libs/robo4j-brick-j1-client-all-alfa-0.2.jar -d ./out/ 
-  cd ./out
-  jar xf ./robo4j-brick-j1-client-all-alfa-0.2.jar
-  rm ./robo4j-brick-j1-client-all-alfa-0.2.jar
-  cd ..
-  jar cvfm "$JAR_FILE_NAME" ./src/main/resources/META-INF/MANIFEST.MF -C ./out/ . 
+  unzip ./libs/robo4j-brick-j1-client-all-alfa-0.2.jar -d ./out
+  jar cvfm "$JAR_FILE_NAME" ./src/main/resources/META-INF/MANIFEST.MF -C ./out/ .
   scp ./"$JAR_FILE_NAME" root@"$1":/home/root/lejos/samples 
   echo "Robo4j.IO Number42 DONE" 
 }
