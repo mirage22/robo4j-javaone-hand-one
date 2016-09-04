@@ -37,18 +37,18 @@ public class Number42Robot {
         RobotNumber42 robot = new RobotNumber42();
         RobotTouchSensor robotHandTouchSensor = new RobotTouchSensor("S4");
         RobotMotor robotHandMotor = new RobotMotor("A");
-//        RobotMotor robotLeftMotor = new RobotMotor("B");
-//        RobotMotor robotRightMotor = new RobotMotor("C");
+        RobotMotor robotLeftMotor = new RobotMotor("B");
+        RobotMotor robotRightMotor = new RobotMotor("C");
 
 
         robot.setHandMotor(robotHandMotor);
         robot.setHandSensor(robotHandTouchSensor);
         robot.setHandRelation(new RobotHandRelation(robotHandTouchSensor,robotHandMotor));
-//        robot.setMotorLeft(robotLeftMotor);
-//        robot.setMotorRight(robotRightMotor);
-//        robot.setPlatformRelation(new RobotPlatformRelation(robotLeftMotor, robotRightMotor));
+        robot.setMotorLeft(robotLeftMotor);
+        robot.setMotorRight(robotRightMotor);
+        robot.setPlatformRelation(new RobotPlatformRelation(robotLeftMotor, robotRightMotor));
 
-        robot.setLCD(new RobotLCD("JavaOne robot One"));
+        robot.setLCD(new RobotLCD("JavaOne Robot: Number42 FUll"));
         robot.setPAD(new RobotPAD());
         robot.build();
         if(robot.check()){
