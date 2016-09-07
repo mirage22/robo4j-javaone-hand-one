@@ -44,6 +44,7 @@ public class Number42Robot {
         robot.setHandMotor(robotHandMotor);
         robot.setHandSensor(robotHandTouchSensor);
         robot.setHandRelation(new RobotHandRelation(robotHandTouchSensor,robotHandMotor));
+
         robot.setMotorLeft(robotLeftMotor);
         robot.setMotorRight(robotRightMotor);
         robot.setPlatformRelation(new RobotPlatformRelation(robotLeftMotor, robotRightMotor));
