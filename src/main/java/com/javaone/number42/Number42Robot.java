@@ -19,41 +19,20 @@
 package com.javaone.number42;
 
 
-import com.javaone.number42.init.RobotHandRelation;
-import com.javaone.number42.init.RobotLCD;
-import com.javaone.number42.init.RobotMotor;
-import com.javaone.number42.init.RobotNumber42;
-import com.javaone.number42.init.RobotPAD;
-import com.javaone.number42.init.RobotPlatformRelation;
-import com.javaone.number42.init.RobotTouchSensor;
-
 /**
+ * 1. Create new RobotNumber42 instance
+ * 2. initiate appropriate Motors and Sensor
+ * 3. create relation between them
+ * 4. upload the robot Number42 into the LegoBrick
+ *
  * @author Miro Kopecky (@miragemiko)
  * @since 26.08.2016
  */
 public class Number42Robot {
 
     public static void main(String[] args) {
-        RobotNumber42 robot = new RobotNumber42();
-        RobotTouchSensor robotHandTouchSensor = new RobotTouchSensor("S4");
-        RobotMotor robotHandMotor = new RobotMotor("A");
-        RobotMotor robotLeftMotor = new RobotMotor("B");
-        RobotMotor robotRightMotor = new RobotMotor("C");
+        /* Write a program for Robot Number42 : Start */
+        /* note: Start with new Robot instance creation RobotNumber42 robot = new RobotNumber42(); */
 
-
-        robot.setHandMotor(robotHandMotor);
-        robot.setHandSensor(robotHandTouchSensor);
-        robot.setHandRelation(new RobotHandRelation(robotHandTouchSensor,robotHandMotor));
-
-        robot.setMotorLeft(robotLeftMotor);
-        robot.setMotorRight(robotRightMotor);
-        robot.setPlatformRelation(new RobotPlatformRelation(robotLeftMotor, robotRightMotor));
-
-        robot.setLCD(new RobotLCD("JavaOne Robot: Number42 FUll"));
-        robot.setPAD(new RobotPAD());
-        robot.build();
-        if(robot.check()){
-            robot.activate();
-        }
     }
 }
